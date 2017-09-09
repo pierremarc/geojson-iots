@@ -1,0 +1,23 @@
+{
+    "compilerOptions": {
+        "outDir": "out",
+        "declaration": true,
+        "moduleResolution": "node",
+        "module": "commonjs",
+        "target": "ES6",
+        "alwaysStrict": true,
+        "noImplicitAny": true,
+        "noImplicitReturns": true,
+        "noImplicitThis": true,
+        "noImplicitUseStrict": false,
+        "noUnusedLocals": true,
+        "noUnusedParameters": true,
+        "strictNullChecks": true,
+        "removeComments": true,
+        "sourceMap": true
+    },
+    "files": [
+        "src/index.ts",
+        "test/index.ts"
+    ]
+}

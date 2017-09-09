@@ -1,0 +1,37 @@
+{
+  "name": "geojson-iots",
+  "version": "1.0.0",
+  "description": "Runtime types for GeoJSON",
+  "main": "out/src/index.js",
+  "typings": "out/src/index.d.ts",
+  "files": [
+    "out/src"
+  ],
+  "scripts": {
+    "lint": "tslint --project tsconfig.json --type-check",
+    "build": "rm -rf out && tsc",
+    "test": "npm run lint && npm run build && node out/test/index.js"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/pierremarc/geojson-iots.git"
+  },
+  "keywords": [
+    "io-ts",
+    "typescript",
+    "geojson"
+  ],
+  "author": "Pierre Marchand <pierre.m@atelier-cartographique.be>",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/pierremarc/geojson-iots/issues"
+  },
+  "homepage": "https://github.com/pierremarc/geojson-iots#readme",
+  "dependencies": {
+    "io-ts": "^0.7.0"
+  },
+  "devDependencies": {
+    "tslint": "^5.7.0",
+    "typescript": "^2.5.2"
+  }
+}
