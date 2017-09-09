@@ -10,7 +10,8 @@
   "scripts": {
     "lint": "tslint --project tsconfig.json --type-check",
     "build": "rm -rf out && tsc",
-    "test": "npm run lint && npm run build && node out/test/index.js"
+    "test": "npm run lint && npm run build && node out/test/index.js",
+    "prepublishOnly": "npm run lint && npm run build"
   },
   "repository": {
     "type": "git",
