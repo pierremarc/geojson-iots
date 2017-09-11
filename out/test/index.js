@@ -104,8 +104,17 @@ exports.geojsonMissingProperties = {
             },
         }],
 };
+exports.f = {
+    type: 'Feature',
+    geometry: {
+        type: 'Point',
+        coordinates: [0, 0],
+    },
+    properties: null,
+};
 const good = (a) => a;
 const bad = (msg) => () => { throw (new Error(msg)); };
 exports.line = io.validate(exports.geojsonLine, src_1.FeatureCollectionIO).fold(bad('Line did not validate but it should'), good);
 exports.missingProperties = io.validate(exports.geojsonMissingProperties, src_1.FeatureCollectionIO).fold(good, bad('missingProperties should not validate but it did'));
+exports.feature = io.validate(exports.f, src_1.FeatureIO).fold(bad('Should validate'), good);
 //# sourceMappingURL=index.js.map

@@ -156,10 +156,12 @@ export const MultiPolygonIO = io.intersection([
 * We do not implement nested collections.
 */
 export const GeometryCollectionIO = io.intersection([
-    GeoJsonObjectIO,
     i({
         type: l('GeometryCollection'),
         geometries: a(DirectGeometryObjectIO),
+    }),
+    p({
+        bbox: BoundingBoxIO,
     }),
 ]);
 

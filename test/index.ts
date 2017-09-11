@@ -1,6 +1,6 @@
 
 import * as io from 'io-ts';
-import { FeatureCollectionIO } from '../src';
+import { Feature, FeatureCollectionIO, FeatureIO } from '../src';
 
 export const geojsonLine: any = {
     'type': 'FeatureCollection',
@@ -106,6 +106,17 @@ export const geojsonMissingProperties: any = {
     }],
 };
 
+
+export const f: Feature = {
+    type: 'Feature',
+    geometry: {
+        type: 'Point',
+        coordinates: [0, 0],
+    },
+    properties: null,
+};
+
+
 const good = <T>(a: T) => a;
 const bad = (msg: string) => () => { throw (new Error(msg)); };
 
@@ -119,3 +130,7 @@ export const missingProperties = io.validate(geojsonMissingProperties, FeatureCo
     bad('missingProperties should not validate but it did'),
 );
 
+export const feature = io.validate(f, FeatureIO).fold(
+    bad('Should validate'),
+    good,
+);

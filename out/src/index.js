@@ -93,10 +93,12 @@ exports.MultiPolygonIO = io.intersection([
     }),
 ], 'MultiPolygonIO');
 exports.GeometryCollectionIO = io.intersection([
-    exports.GeoJsonObjectIO,
     exports.i({
         type: exports.l('GeometryCollection'),
         geometries: exports.a(exports.DirectGeometryObjectIO),
+    }),
+    exports.p({
+        bbox: exports.BoundingBoxIO,
     }),
 ]);
 exports.GeometryObjectIO = exports.u([
