@@ -72,10 +72,12 @@ export const CoordinatesIO = u([
 * https://tools.ietf.org/html/rfc7946#section-3.1
 */
 export const DirectGeometryObjectIO = io.intersection([
-    GeoJsonObjectIO,
     i({
         type: DirectGeometryTypeIO,
         coordinates: CoordinatesIO,
+    }),
+    p({
+        bbox: BoundingBoxIO,
     }),
 ], 'DirectGeometryObjectIO');
 
@@ -85,10 +87,12 @@ export const DirectGeometryObjectIO = io.intersection([
 * https://tools.ietf.org/html/rfc7946#section-3.1.2
 */
 export const PointIO = io.intersection([
-    DirectGeometryObjectIO,
     i({
         type: l('Point'),
         coordinates: PositionIO,
+    }),
+    p({
+        bbox: BoundingBoxIO,
     }),
 ], 'PointIO');
 
@@ -96,10 +100,12 @@ export const PointIO = io.intersection([
 * https://tools.ietf.org/html/rfc7946#section-3.1.3
 */
 export const MultiPointIO = io.intersection([
-    DirectGeometryObjectIO,
     i({
         type: l('MultiPoint'),
         coordinates: a(PositionIO),
+    }),
+    p({
+        bbox: BoundingBoxIO,
     }),
 ], 'MultiPointIO');
 
@@ -107,10 +113,12 @@ export const MultiPointIO = io.intersection([
 * https://tools.ietf.org/html/rfc7946#section-3.1.4
 */
 export const LineStringIO = io.intersection([
-    DirectGeometryObjectIO,
     i({
         type: l('LineString'),
         coordinates: a(PositionIO),
+    }),
+    p({
+        bbox: BoundingBoxIO,
     }),
 ], 'LineStringIO');
 
@@ -118,10 +126,12 @@ export const LineStringIO = io.intersection([
 * https://tools.ietf.org/html/rfc7946#section-3.1.5
 */
 export const MultiLineStringIO = io.intersection([
-    DirectGeometryObjectIO,
     i({
         type: l('MultiLineString'),
         coordinates: a(a(PositionIO)),
+    }),
+    p({
+        bbox: BoundingBoxIO,
     }),
 ], 'MultiLineStringIO');
 
@@ -129,10 +139,12 @@ export const MultiLineStringIO = io.intersection([
 * https://tools.ietf.org/html/rfc7946#section-3.1.6
 */
 export const PolygonIO = io.intersection([
-    DirectGeometryObjectIO,
     i({
         type: l('Polygon'),
         coordinates: a(a(PositionIO)),
+    }),
+    p({
+        bbox: BoundingBoxIO,
     }),
 ], 'PolygonIO');
 
@@ -140,10 +152,12 @@ export const PolygonIO = io.intersection([
 * https://tools.ietf.org/html/rfc7946#section-3.1.7
 */
 export const MultiPolygonIO = io.intersection([
-    DirectGeometryObjectIO,
     i({
         type: l('MultiPolygon'),
         coordinates: a(a(a(PositionIO))),
+    }),
+    p({
+        bbox: BoundingBoxIO,
     }),
 ], 'MultiPolygonIO');
 
@@ -178,7 +192,6 @@ export const GeometryObjectIO = u([
 export const PropertiesIO = u([io.dictionary(io.string, io.any), io.null], 'PropertiesIO');
 
 export const FeatureIO = io.intersection([
-    GeoJsonObjectIO,
     i({
         type: l('Feature'),
         geometry: u([GeometryObjectIO, io.null]),
@@ -186,6 +199,7 @@ export const FeatureIO = io.intersection([
     }),
     p({
         id: u([io.string, io.number]),
+        bbox: BoundingBoxIO,
     }),
 ], 'FeatureIO');
 
@@ -193,10 +207,12 @@ export const FeatureIO = io.intersection([
 * https://tools.ietf.org/html/rfc7946#section-3.3
 */
 export const FeatureCollectionIO = io.intersection([
-    GeoJsonObjectIO,
     i({
         type: l('FeatureCollection'),
         features: a(FeatureIO),
+    }),
+    p({
+        bbox: BoundingBoxIO,
     }),
 ], 'FeatureCollectionIO');
 

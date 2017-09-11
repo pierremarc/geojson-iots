@@ -44,52 +44,66 @@ exports.CoordinatesIO = exports.u([
     exports.a(exports.a(exports.a(exports.PositionIO))),
 ], 'CoordinatesIO');
 exports.DirectGeometryObjectIO = io.intersection([
-    exports.GeoJsonObjectIO,
     exports.i({
         type: exports.DirectGeometryTypeIO,
         coordinates: exports.CoordinatesIO,
     }),
+    exports.p({
+        bbox: exports.BoundingBoxIO,
+    }),
 ], 'DirectGeometryObjectIO');
 exports.PointIO = io.intersection([
-    exports.DirectGeometryObjectIO,
     exports.i({
         type: exports.l('Point'),
         coordinates: exports.PositionIO,
     }),
+    exports.p({
+        bbox: exports.BoundingBoxIO,
+    }),
 ], 'PointIO');
 exports.MultiPointIO = io.intersection([
-    exports.DirectGeometryObjectIO,
     exports.i({
         type: exports.l('MultiPoint'),
         coordinates: exports.a(exports.PositionIO),
     }),
+    exports.p({
+        bbox: exports.BoundingBoxIO,
+    }),
 ], 'MultiPointIO');
 exports.LineStringIO = io.intersection([
-    exports.DirectGeometryObjectIO,
     exports.i({
         type: exports.l('LineString'),
         coordinates: exports.a(exports.PositionIO),
     }),
+    exports.p({
+        bbox: exports.BoundingBoxIO,
+    }),
 ], 'LineStringIO');
 exports.MultiLineStringIO = io.intersection([
-    exports.DirectGeometryObjectIO,
     exports.i({
         type: exports.l('MultiLineString'),
         coordinates: exports.a(exports.a(exports.PositionIO)),
     }),
+    exports.p({
+        bbox: exports.BoundingBoxIO,
+    }),
 ], 'MultiLineStringIO');
 exports.PolygonIO = io.intersection([
-    exports.DirectGeometryObjectIO,
     exports.i({
         type: exports.l('Polygon'),
         coordinates: exports.a(exports.a(exports.PositionIO)),
     }),
+    exports.p({
+        bbox: exports.BoundingBoxIO,
+    }),
 ], 'PolygonIO');
 exports.MultiPolygonIO = io.intersection([
-    exports.DirectGeometryObjectIO,
     exports.i({
         type: exports.l('MultiPolygon'),
         coordinates: exports.a(exports.a(exports.a(exports.PositionIO))),
+    }),
+    exports.p({
+        bbox: exports.BoundingBoxIO,
     }),
 ], 'MultiPolygonIO');
 exports.GeometryCollectionIO = io.intersection([
@@ -107,7 +121,6 @@ exports.GeometryObjectIO = exports.u([
 ], 'GeometryObjectIO');
 exports.PropertiesIO = exports.u([io.dictionary(io.string, io.any), io.null], 'PropertiesIO');
 exports.FeatureIO = io.intersection([
-    exports.GeoJsonObjectIO,
     exports.i({
         type: exports.l('Feature'),
         geometry: exports.u([exports.GeometryObjectIO, io.null]),
@@ -115,13 +128,16 @@ exports.FeatureIO = io.intersection([
     }),
     exports.p({
         id: exports.u([io.string, io.number]),
+        bbox: exports.BoundingBoxIO,
     }),
 ], 'FeatureIO');
 exports.FeatureCollectionIO = io.intersection([
-    exports.GeoJsonObjectIO,
     exports.i({
         type: exports.l('FeatureCollection'),
         features: exports.a(exports.FeatureIO),
+    }),
+    exports.p({
+        bbox: exports.BoundingBoxIO,
     }),
 ], 'FeatureCollectionIO');
 //# sourceMappingURL=index.js.map

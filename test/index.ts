@@ -107,7 +107,7 @@ export const geojsonMissingProperties: any = {
 };
 
 
-export const f: Feature = {
+export const featureGood: Feature = {
     type: 'Feature',
     geometry: {
         type: 'Point',
@@ -116,21 +116,39 @@ export const f: Feature = {
     properties: null,
 };
 
+export const featureBad: any = {
+    type: 'Feature',
+    geometry: {
+        type: 'Feature',
+        coordinates: [0, 0],
+    },
+    properties: null,
+};
 
-const good = <T>(a: T) => a;
+
+
+
+
+const good = (msg: string) => () => console.log(msg);
 const bad = (msg: string) => () => { throw (new Error(msg)); };
 
-export const line = io.validate(geojsonLine, FeatureCollectionIO).fold(
+io.validate(geojsonLine, FeatureCollectionIO).fold(
     bad('Line did not validate but it should'),
-    good,
+    good('geojsonLine validates as it should'),
 );
 
-export const missingProperties = io.validate(geojsonMissingProperties, FeatureCollectionIO).fold(
-    good,
+io.validate(geojsonMissingProperties, FeatureCollectionIO).fold(
+    good('geojsonMissingProperties fails to validate as it should'),
     bad('missingProperties should not validate but it did'),
 );
 
-export const feature = io.validate(f, FeatureIO).fold(
-    bad('Should validate'),
-    good,
+io.validate(featureGood, FeatureIO).fold(
+    bad('featureGood should validate'),
+    good('featureGood validates as it should'),
 );
+
+io.validate(featureBad, FeatureIO).fold(
+    good('featureBad fails to validate as it should'),
+    bad('featureBad should not validate'),
+);
+

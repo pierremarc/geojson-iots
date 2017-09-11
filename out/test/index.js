@@ -104,7 +104,7 @@ exports.geojsonMissingProperties = {
             },
         }],
 };
-exports.f = {
+exports.featureGood = {
     type: 'Feature',
     geometry: {
         type: 'Point',
@@ -112,9 +112,18 @@ exports.f = {
     },
     properties: null,
 };
-const good = (a) => a;
+exports.featureBad = {
+    type: 'Feature',
+    geometry: {
+        type: 'Feature',
+        coordinates: [0, 0],
+    },
+    properties: null,
+};
+const good = (msg) => () => console.log(msg);
 const bad = (msg) => () => { throw (new Error(msg)); };
-exports.line = io.validate(exports.geojsonLine, src_1.FeatureCollectionIO).fold(bad('Line did not validate but it should'), good);
-exports.missingProperties = io.validate(exports.geojsonMissingProperties, src_1.FeatureCollectionIO).fold(good, bad('missingProperties should not validate but it did'));
-exports.feature = io.validate(exports.f, src_1.FeatureIO).fold(bad('Should validate'), good);
+io.validate(exports.geojsonLine, src_1.FeatureCollectionIO).fold(bad('Line did not validate but it should'), good('geojsonLine validates as it should'));
+io.validate(exports.geojsonMissingProperties, src_1.FeatureCollectionIO).fold(good('geojsonMissingProperties fails to validate as it should'), bad('missingProperties should not validate but it did'));
+io.validate(exports.featureGood, src_1.FeatureIO).fold(bad('featureGood should validate'), good('featureGood validates as it should'));
+io.validate(exports.featureBad, src_1.FeatureIO).fold(good('featureBad fails to validate as it should'), bad('featureBad should not validate'));
 //# sourceMappingURL=index.js.map
