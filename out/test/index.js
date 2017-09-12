@@ -120,10 +120,39 @@ exports.featureBad = {
     },
     properties: null,
 };
-const good = (msg) => () => console.log(msg);
-const bad = (msg) => () => { throw (new Error(msg)); };
+exports.MyPropType = io.interface({
+    a: io.string,
+    b: io.number,
+});
+exports.MyFeatureType = src_1.PartialFeatureIO(exports.MyPropType, 'MyFeatureType');
+exports.myFeatureBad = {
+    type: 'Feature',
+    geometry: {
+        type: 'Point',
+        coordinates: [0, 0],
+    },
+    properties: {
+        a: 1,
+        b: 'a',
+    },
+};
+exports.myFeatureGood = {
+    type: 'Feature',
+    geometry: {
+        type: 'Point',
+        coordinates: [0, 0],
+    },
+    properties: {
+        a: 'a',
+        b: 1,
+    },
+};
+const good = (msg) => () => console.log(`GOOD ${msg}`);
+const bad = (msg) => () => { throw (new Error(`BAD ${msg}`)); };
 io.validate(exports.geojsonLine, src_1.FeatureCollectionIO).fold(bad('Line did not validate but it should'), good('geojsonLine validates as it should'));
 io.validate(exports.geojsonMissingProperties, src_1.FeatureCollectionIO).fold(good('geojsonMissingProperties fails to validate as it should'), bad('missingProperties should not validate but it did'));
 io.validate(exports.featureGood, src_1.FeatureIO).fold(bad('featureGood should validate'), good('featureGood validates as it should'));
 io.validate(exports.featureBad, src_1.FeatureIO).fold(good('featureBad fails to validate as it should'), bad('featureBad should not validate'));
+io.validate(exports.myFeatureGood, exports.MyFeatureType).fold(bad('myFeatureGood should validate'), good('myFeatureGood validates as it should'));
+io.validate(exports.myFeatureBad, exports.MyFeatureType).fold(good('myFeatureBad fails to validate as it should'), bad('myFeatureBad should not validate'));
 //# sourceMappingURL=index.js.map

@@ -131,6 +131,17 @@ exports.FeatureIO = io.intersection([
         bbox: exports.BoundingBoxIO,
     }),
 ], 'FeatureIO');
+exports.PartialFeatureIO = (propType, name) => io.intersection([
+    exports.i({
+        type: exports.l('Feature'),
+        geometry: exports.u([exports.GeometryObjectIO, io.null]),
+        properties: propType,
+    }),
+    exports.p({
+        id: exports.u([io.string, io.number]),
+        bbox: exports.BoundingBoxIO,
+    }),
+], name);
 exports.FeatureCollectionIO = io.intersection([
     exports.i({
         type: exports.l('FeatureCollection'),

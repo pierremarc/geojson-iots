@@ -372,6 +372,181 @@ export declare const FeatureIO: io.IntersectionType<[io.InterfaceType<{
     id: io.UnionType<[io.StringType, io.NumberType], string | number>;
     bbox: io.UnionType<[io.ArrayType<io.ArrayType<io.NumberType>>, io.ArrayType<io.ArrayType<io.ArrayType<io.NumberType>>>], number[][] | number[][][]>;
 }>>;
+export declare const PartialFeatureIO: <T>(propType: io.Type<T>, name: string) => io.IntersectionType<[io.InterfaceType<{
+    type: io.LiteralType<"Feature">;
+    geometry: io.UnionType<[io.UnionType<[io.IntersectionType<[io.InterfaceType<{
+        type: io.UnionType<[io.LiteralType<"Point">, io.LiteralType<"Polygon">, io.LiteralType<"LineString">, io.LiteralType<"MultiPoint">, io.LiteralType<"MultiPolygon">, io.LiteralType<"MultiLineString">], "Point" | "Polygon" | "LineString" | "MultiPoint" | "MultiPolygon" | "MultiLineString">;
+        coordinates: io.UnionType<[io.ArrayType<io.NumberType>, io.ArrayType<io.ArrayType<io.NumberType>>, io.ArrayType<io.ArrayType<io.ArrayType<io.NumberType>>>, io.ArrayType<io.ArrayType<io.ArrayType<io.ArrayType<io.NumberType>>>>], number[] | number[][] | number[][][] | number[][][][]>;
+    }>, io.PartialType<{
+        bbox: io.UnionType<[io.ArrayType<io.ArrayType<io.NumberType>>, io.ArrayType<io.ArrayType<io.ArrayType<io.NumberType>>>], number[][] | number[][][]>;
+    }>], io.InterfaceOf<{
+        type: io.UnionType<[io.LiteralType<"Point">, io.LiteralType<"Polygon">, io.LiteralType<"LineString">, io.LiteralType<"MultiPoint">, io.LiteralType<"MultiPolygon">, io.LiteralType<"MultiLineString">], "Point" | "Polygon" | "LineString" | "MultiPoint" | "MultiPolygon" | "MultiLineString">;
+        coordinates: io.UnionType<[io.ArrayType<io.NumberType>, io.ArrayType<io.ArrayType<io.NumberType>>, io.ArrayType<io.ArrayType<io.ArrayType<io.NumberType>>>, io.ArrayType<io.ArrayType<io.ArrayType<io.ArrayType<io.NumberType>>>>], number[] | number[][] | number[][][] | number[][][][]>;
+    }> & io.PartialOf<{
+        bbox: io.UnionType<[io.ArrayType<io.ArrayType<io.NumberType>>, io.ArrayType<io.ArrayType<io.ArrayType<io.NumberType>>>], number[][] | number[][][]>;
+    }>>, io.IntersectionType<[io.InterfaceType<{
+        type: io.LiteralType<"GeometryCollection">;
+        geometries: io.ArrayType<io.IntersectionType<[io.InterfaceType<{
+            type: io.UnionType<[io.LiteralType<"Point">, io.LiteralType<"Polygon">, io.LiteralType<"LineString">, io.LiteralType<"MultiPoint">, io.LiteralType<"MultiPolygon">, io.LiteralType<"MultiLineString">], "Point" | "Polygon" | "LineString" | "MultiPoint" | "MultiPolygon" | "MultiLineString">;
+            coordinates: io.UnionType<[io.ArrayType<io.NumberType>, io.ArrayType<io.ArrayType<io.NumberType>>, io.ArrayType<io.ArrayType<io.ArrayType<io.NumberType>>>, io.ArrayType<io.ArrayType<io.ArrayType<io.ArrayType<io.NumberType>>>>], number[] | number[][] | number[][][] | number[][][][]>;
+        }>, io.PartialType<{
+            bbox: io.UnionType<[io.ArrayType<io.ArrayType<io.NumberType>>, io.ArrayType<io.ArrayType<io.ArrayType<io.NumberType>>>], number[][] | number[][][]>;
+        }>], io.InterfaceOf<{
+            type: io.UnionType<[io.LiteralType<"Point">, io.LiteralType<"Polygon">, io.LiteralType<"LineString">, io.LiteralType<"MultiPoint">, io.LiteralType<"MultiPolygon">, io.LiteralType<"MultiLineString">], "Point" | "Polygon" | "LineString" | "MultiPoint" | "MultiPolygon" | "MultiLineString">;
+            coordinates: io.UnionType<[io.ArrayType<io.NumberType>, io.ArrayType<io.ArrayType<io.NumberType>>, io.ArrayType<io.ArrayType<io.ArrayType<io.NumberType>>>, io.ArrayType<io.ArrayType<io.ArrayType<io.ArrayType<io.NumberType>>>>], number[] | number[][] | number[][][] | number[][][][]>;
+        }> & io.PartialOf<{
+            bbox: io.UnionType<[io.ArrayType<io.ArrayType<io.NumberType>>, io.ArrayType<io.ArrayType<io.ArrayType<io.NumberType>>>], number[][] | number[][][]>;
+        }>>>;
+    }>, io.PartialType<{
+        bbox: io.UnionType<[io.ArrayType<io.ArrayType<io.NumberType>>, io.ArrayType<io.ArrayType<io.ArrayType<io.NumberType>>>], number[][] | number[][][]>;
+    }>], io.InterfaceOf<{
+        type: io.LiteralType<"GeometryCollection">;
+        geometries: io.ArrayType<io.IntersectionType<[io.InterfaceType<{
+            type: io.UnionType<[io.LiteralType<"Point">, io.LiteralType<"Polygon">, io.LiteralType<"LineString">, io.LiteralType<"MultiPoint">, io.LiteralType<"MultiPolygon">, io.LiteralType<"MultiLineString">], "Point" | "Polygon" | "LineString" | "MultiPoint" | "MultiPolygon" | "MultiLineString">;
+            coordinates: io.UnionType<[io.ArrayType<io.NumberType>, io.ArrayType<io.ArrayType<io.NumberType>>, io.ArrayType<io.ArrayType<io.ArrayType<io.NumberType>>>, io.ArrayType<io.ArrayType<io.ArrayType<io.ArrayType<io.NumberType>>>>], number[] | number[][] | number[][][] | number[][][][]>;
+        }>, io.PartialType<{
+            bbox: io.UnionType<[io.ArrayType<io.ArrayType<io.NumberType>>, io.ArrayType<io.ArrayType<io.ArrayType<io.NumberType>>>], number[][] | number[][][]>;
+        }>], io.InterfaceOf<{
+            type: io.UnionType<[io.LiteralType<"Point">, io.LiteralType<"Polygon">, io.LiteralType<"LineString">, io.LiteralType<"MultiPoint">, io.LiteralType<"MultiPolygon">, io.LiteralType<"MultiLineString">], "Point" | "Polygon" | "LineString" | "MultiPoint" | "MultiPolygon" | "MultiLineString">;
+            coordinates: io.UnionType<[io.ArrayType<io.NumberType>, io.ArrayType<io.ArrayType<io.NumberType>>, io.ArrayType<io.ArrayType<io.ArrayType<io.NumberType>>>, io.ArrayType<io.ArrayType<io.ArrayType<io.ArrayType<io.NumberType>>>>], number[] | number[][] | number[][][] | number[][][][]>;
+        }> & io.PartialOf<{
+            bbox: io.UnionType<[io.ArrayType<io.ArrayType<io.NumberType>>, io.ArrayType<io.ArrayType<io.ArrayType<io.NumberType>>>], number[][] | number[][][]>;
+        }>>>;
+    }> & io.PartialOf<{
+        bbox: io.UnionType<[io.ArrayType<io.ArrayType<io.NumberType>>, io.ArrayType<io.ArrayType<io.ArrayType<io.NumberType>>>], number[][] | number[][][]>;
+    }>>], (io.InterfaceOf<{
+        type: io.UnionType<[io.LiteralType<"Point">, io.LiteralType<"Polygon">, io.LiteralType<"LineString">, io.LiteralType<"MultiPoint">, io.LiteralType<"MultiPolygon">, io.LiteralType<"MultiLineString">], "Point" | "Polygon" | "LineString" | "MultiPoint" | "MultiPolygon" | "MultiLineString">;
+        coordinates: io.UnionType<[io.ArrayType<io.NumberType>, io.ArrayType<io.ArrayType<io.NumberType>>, io.ArrayType<io.ArrayType<io.ArrayType<io.NumberType>>>, io.ArrayType<io.ArrayType<io.ArrayType<io.ArrayType<io.NumberType>>>>], number[] | number[][] | number[][][] | number[][][][]>;
+    }> & io.PartialOf<{
+        bbox: io.UnionType<[io.ArrayType<io.ArrayType<io.NumberType>>, io.ArrayType<io.ArrayType<io.ArrayType<io.NumberType>>>], number[][] | number[][][]>;
+    }>) | (io.InterfaceOf<{
+        type: io.LiteralType<"GeometryCollection">;
+        geometries: io.ArrayType<io.IntersectionType<[io.InterfaceType<{
+            type: io.UnionType<[io.LiteralType<"Point">, io.LiteralType<"Polygon">, io.LiteralType<"LineString">, io.LiteralType<"MultiPoint">, io.LiteralType<"MultiPolygon">, io.LiteralType<"MultiLineString">], "Point" | "Polygon" | "LineString" | "MultiPoint" | "MultiPolygon" | "MultiLineString">;
+            coordinates: io.UnionType<[io.ArrayType<io.NumberType>, io.ArrayType<io.ArrayType<io.NumberType>>, io.ArrayType<io.ArrayType<io.ArrayType<io.NumberType>>>, io.ArrayType<io.ArrayType<io.ArrayType<io.ArrayType<io.NumberType>>>>], number[] | number[][] | number[][][] | number[][][][]>;
+        }>, io.PartialType<{
+            bbox: io.UnionType<[io.ArrayType<io.ArrayType<io.NumberType>>, io.ArrayType<io.ArrayType<io.ArrayType<io.NumberType>>>], number[][] | number[][][]>;
+        }>], io.InterfaceOf<{
+            type: io.UnionType<[io.LiteralType<"Point">, io.LiteralType<"Polygon">, io.LiteralType<"LineString">, io.LiteralType<"MultiPoint">, io.LiteralType<"MultiPolygon">, io.LiteralType<"MultiLineString">], "Point" | "Polygon" | "LineString" | "MultiPoint" | "MultiPolygon" | "MultiLineString">;
+            coordinates: io.UnionType<[io.ArrayType<io.NumberType>, io.ArrayType<io.ArrayType<io.NumberType>>, io.ArrayType<io.ArrayType<io.ArrayType<io.NumberType>>>, io.ArrayType<io.ArrayType<io.ArrayType<io.ArrayType<io.NumberType>>>>], number[] | number[][] | number[][][] | number[][][][]>;
+        }> & io.PartialOf<{
+            bbox: io.UnionType<[io.ArrayType<io.ArrayType<io.NumberType>>, io.ArrayType<io.ArrayType<io.ArrayType<io.NumberType>>>], number[][] | number[][][]>;
+        }>>>;
+    }> & io.PartialOf<{
+        bbox: io.UnionType<[io.ArrayType<io.ArrayType<io.NumberType>>, io.ArrayType<io.ArrayType<io.ArrayType<io.NumberType>>>], number[][] | number[][][]>;
+    }>)>, io.NullType], (io.InterfaceOf<{
+        type: io.UnionType<[io.LiteralType<"Point">, io.LiteralType<"Polygon">, io.LiteralType<"LineString">, io.LiteralType<"MultiPoint">, io.LiteralType<"MultiPolygon">, io.LiteralType<"MultiLineString">], "Point" | "Polygon" | "LineString" | "MultiPoint" | "MultiPolygon" | "MultiLineString">;
+        coordinates: io.UnionType<[io.ArrayType<io.NumberType>, io.ArrayType<io.ArrayType<io.NumberType>>, io.ArrayType<io.ArrayType<io.ArrayType<io.NumberType>>>, io.ArrayType<io.ArrayType<io.ArrayType<io.ArrayType<io.NumberType>>>>], number[] | number[][] | number[][][] | number[][][][]>;
+    }> & io.PartialOf<{
+        bbox: io.UnionType<[io.ArrayType<io.ArrayType<io.NumberType>>, io.ArrayType<io.ArrayType<io.ArrayType<io.NumberType>>>], number[][] | number[][][]>;
+    }>) | (io.InterfaceOf<{
+        type: io.LiteralType<"GeometryCollection">;
+        geometries: io.ArrayType<io.IntersectionType<[io.InterfaceType<{
+            type: io.UnionType<[io.LiteralType<"Point">, io.LiteralType<"Polygon">, io.LiteralType<"LineString">, io.LiteralType<"MultiPoint">, io.LiteralType<"MultiPolygon">, io.LiteralType<"MultiLineString">], "Point" | "Polygon" | "LineString" | "MultiPoint" | "MultiPolygon" | "MultiLineString">;
+            coordinates: io.UnionType<[io.ArrayType<io.NumberType>, io.ArrayType<io.ArrayType<io.NumberType>>, io.ArrayType<io.ArrayType<io.ArrayType<io.NumberType>>>, io.ArrayType<io.ArrayType<io.ArrayType<io.ArrayType<io.NumberType>>>>], number[] | number[][] | number[][][] | number[][][][]>;
+        }>, io.PartialType<{
+            bbox: io.UnionType<[io.ArrayType<io.ArrayType<io.NumberType>>, io.ArrayType<io.ArrayType<io.ArrayType<io.NumberType>>>], number[][] | number[][][]>;
+        }>], io.InterfaceOf<{
+            type: io.UnionType<[io.LiteralType<"Point">, io.LiteralType<"Polygon">, io.LiteralType<"LineString">, io.LiteralType<"MultiPoint">, io.LiteralType<"MultiPolygon">, io.LiteralType<"MultiLineString">], "Point" | "Polygon" | "LineString" | "MultiPoint" | "MultiPolygon" | "MultiLineString">;
+            coordinates: io.UnionType<[io.ArrayType<io.NumberType>, io.ArrayType<io.ArrayType<io.NumberType>>, io.ArrayType<io.ArrayType<io.ArrayType<io.NumberType>>>, io.ArrayType<io.ArrayType<io.ArrayType<io.ArrayType<io.NumberType>>>>], number[] | number[][] | number[][][] | number[][][][]>;
+        }> & io.PartialOf<{
+            bbox: io.UnionType<[io.ArrayType<io.ArrayType<io.NumberType>>, io.ArrayType<io.ArrayType<io.ArrayType<io.NumberType>>>], number[][] | number[][][]>;
+        }>>>;
+    }> & io.PartialOf<{
+        bbox: io.UnionType<[io.ArrayType<io.ArrayType<io.NumberType>>, io.ArrayType<io.ArrayType<io.ArrayType<io.NumberType>>>], number[][] | number[][][]>;
+    }>) | null>;
+    properties: io.Type<T>;
+}>, io.PartialType<{
+    id: io.UnionType<[io.StringType, io.NumberType], string | number>;
+    bbox: io.UnionType<[io.ArrayType<io.ArrayType<io.NumberType>>, io.ArrayType<io.ArrayType<io.ArrayType<io.NumberType>>>], number[][] | number[][][]>;
+}>], io.InterfaceOf<{
+    type: io.LiteralType<"Feature">;
+    geometry: io.UnionType<[io.UnionType<[io.IntersectionType<[io.InterfaceType<{
+        type: io.UnionType<[io.LiteralType<"Point">, io.LiteralType<"Polygon">, io.LiteralType<"LineString">, io.LiteralType<"MultiPoint">, io.LiteralType<"MultiPolygon">, io.LiteralType<"MultiLineString">], "Point" | "Polygon" | "LineString" | "MultiPoint" | "MultiPolygon" | "MultiLineString">;
+        coordinates: io.UnionType<[io.ArrayType<io.NumberType>, io.ArrayType<io.ArrayType<io.NumberType>>, io.ArrayType<io.ArrayType<io.ArrayType<io.NumberType>>>, io.ArrayType<io.ArrayType<io.ArrayType<io.ArrayType<io.NumberType>>>>], number[] | number[][] | number[][][] | number[][][][]>;
+    }>, io.PartialType<{
+        bbox: io.UnionType<[io.ArrayType<io.ArrayType<io.NumberType>>, io.ArrayType<io.ArrayType<io.ArrayType<io.NumberType>>>], number[][] | number[][][]>;
+    }>], io.InterfaceOf<{
+        type: io.UnionType<[io.LiteralType<"Point">, io.LiteralType<"Polygon">, io.LiteralType<"LineString">, io.LiteralType<"MultiPoint">, io.LiteralType<"MultiPolygon">, io.LiteralType<"MultiLineString">], "Point" | "Polygon" | "LineString" | "MultiPoint" | "MultiPolygon" | "MultiLineString">;
+        coordinates: io.UnionType<[io.ArrayType<io.NumberType>, io.ArrayType<io.ArrayType<io.NumberType>>, io.ArrayType<io.ArrayType<io.ArrayType<io.NumberType>>>, io.ArrayType<io.ArrayType<io.ArrayType<io.ArrayType<io.NumberType>>>>], number[] | number[][] | number[][][] | number[][][][]>;
+    }> & io.PartialOf<{
+        bbox: io.UnionType<[io.ArrayType<io.ArrayType<io.NumberType>>, io.ArrayType<io.ArrayType<io.ArrayType<io.NumberType>>>], number[][] | number[][][]>;
+    }>>, io.IntersectionType<[io.InterfaceType<{
+        type: io.LiteralType<"GeometryCollection">;
+        geometries: io.ArrayType<io.IntersectionType<[io.InterfaceType<{
+            type: io.UnionType<[io.LiteralType<"Point">, io.LiteralType<"Polygon">, io.LiteralType<"LineString">, io.LiteralType<"MultiPoint">, io.LiteralType<"MultiPolygon">, io.LiteralType<"MultiLineString">], "Point" | "Polygon" | "LineString" | "MultiPoint" | "MultiPolygon" | "MultiLineString">;
+            coordinates: io.UnionType<[io.ArrayType<io.NumberType>, io.ArrayType<io.ArrayType<io.NumberType>>, io.ArrayType<io.ArrayType<io.ArrayType<io.NumberType>>>, io.ArrayType<io.ArrayType<io.ArrayType<io.ArrayType<io.NumberType>>>>], number[] | number[][] | number[][][] | number[][][][]>;
+        }>, io.PartialType<{
+            bbox: io.UnionType<[io.ArrayType<io.ArrayType<io.NumberType>>, io.ArrayType<io.ArrayType<io.ArrayType<io.NumberType>>>], number[][] | number[][][]>;
+        }>], io.InterfaceOf<{
+            type: io.UnionType<[io.LiteralType<"Point">, io.LiteralType<"Polygon">, io.LiteralType<"LineString">, io.LiteralType<"MultiPoint">, io.LiteralType<"MultiPolygon">, io.LiteralType<"MultiLineString">], "Point" | "Polygon" | "LineString" | "MultiPoint" | "MultiPolygon" | "MultiLineString">;
+            coordinates: io.UnionType<[io.ArrayType<io.NumberType>, io.ArrayType<io.ArrayType<io.NumberType>>, io.ArrayType<io.ArrayType<io.ArrayType<io.NumberType>>>, io.ArrayType<io.ArrayType<io.ArrayType<io.ArrayType<io.NumberType>>>>], number[] | number[][] | number[][][] | number[][][][]>;
+        }> & io.PartialOf<{
+            bbox: io.UnionType<[io.ArrayType<io.ArrayType<io.NumberType>>, io.ArrayType<io.ArrayType<io.ArrayType<io.NumberType>>>], number[][] | number[][][]>;
+        }>>>;
+    }>, io.PartialType<{
+        bbox: io.UnionType<[io.ArrayType<io.ArrayType<io.NumberType>>, io.ArrayType<io.ArrayType<io.ArrayType<io.NumberType>>>], number[][] | number[][][]>;
+    }>], io.InterfaceOf<{
+        type: io.LiteralType<"GeometryCollection">;
+        geometries: io.ArrayType<io.IntersectionType<[io.InterfaceType<{
+            type: io.UnionType<[io.LiteralType<"Point">, io.LiteralType<"Polygon">, io.LiteralType<"LineString">, io.LiteralType<"MultiPoint">, io.LiteralType<"MultiPolygon">, io.LiteralType<"MultiLineString">], "Point" | "Polygon" | "LineString" | "MultiPoint" | "MultiPolygon" | "MultiLineString">;
+            coordinates: io.UnionType<[io.ArrayType<io.NumberType>, io.ArrayType<io.ArrayType<io.NumberType>>, io.ArrayType<io.ArrayType<io.ArrayType<io.NumberType>>>, io.ArrayType<io.ArrayType<io.ArrayType<io.ArrayType<io.NumberType>>>>], number[] | number[][] | number[][][] | number[][][][]>;
+        }>, io.PartialType<{
+            bbox: io.UnionType<[io.ArrayType<io.ArrayType<io.NumberType>>, io.ArrayType<io.ArrayType<io.ArrayType<io.NumberType>>>], number[][] | number[][][]>;
+        }>], io.InterfaceOf<{
+            type: io.UnionType<[io.LiteralType<"Point">, io.LiteralType<"Polygon">, io.LiteralType<"LineString">, io.LiteralType<"MultiPoint">, io.LiteralType<"MultiPolygon">, io.LiteralType<"MultiLineString">], "Point" | "Polygon" | "LineString" | "MultiPoint" | "MultiPolygon" | "MultiLineString">;
+            coordinates: io.UnionType<[io.ArrayType<io.NumberType>, io.ArrayType<io.ArrayType<io.NumberType>>, io.ArrayType<io.ArrayType<io.ArrayType<io.NumberType>>>, io.ArrayType<io.ArrayType<io.ArrayType<io.ArrayType<io.NumberType>>>>], number[] | number[][] | number[][][] | number[][][][]>;
+        }> & io.PartialOf<{
+            bbox: io.UnionType<[io.ArrayType<io.ArrayType<io.NumberType>>, io.ArrayType<io.ArrayType<io.ArrayType<io.NumberType>>>], number[][] | number[][][]>;
+        }>>>;
+    }> & io.PartialOf<{
+        bbox: io.UnionType<[io.ArrayType<io.ArrayType<io.NumberType>>, io.ArrayType<io.ArrayType<io.ArrayType<io.NumberType>>>], number[][] | number[][][]>;
+    }>>], (io.InterfaceOf<{
+        type: io.UnionType<[io.LiteralType<"Point">, io.LiteralType<"Polygon">, io.LiteralType<"LineString">, io.LiteralType<"MultiPoint">, io.LiteralType<"MultiPolygon">, io.LiteralType<"MultiLineString">], "Point" | "Polygon" | "LineString" | "MultiPoint" | "MultiPolygon" | "MultiLineString">;
+        coordinates: io.UnionType<[io.ArrayType<io.NumberType>, io.ArrayType<io.ArrayType<io.NumberType>>, io.ArrayType<io.ArrayType<io.ArrayType<io.NumberType>>>, io.ArrayType<io.ArrayType<io.ArrayType<io.ArrayType<io.NumberType>>>>], number[] | number[][] | number[][][] | number[][][][]>;
+    }> & io.PartialOf<{
+        bbox: io.UnionType<[io.ArrayType<io.ArrayType<io.NumberType>>, io.ArrayType<io.ArrayType<io.ArrayType<io.NumberType>>>], number[][] | number[][][]>;
+    }>) | (io.InterfaceOf<{
+        type: io.LiteralType<"GeometryCollection">;
+        geometries: io.ArrayType<io.IntersectionType<[io.InterfaceType<{
+            type: io.UnionType<[io.LiteralType<"Point">, io.LiteralType<"Polygon">, io.LiteralType<"LineString">, io.LiteralType<"MultiPoint">, io.LiteralType<"MultiPolygon">, io.LiteralType<"MultiLineString">], "Point" | "Polygon" | "LineString" | "MultiPoint" | "MultiPolygon" | "MultiLineString">;
+            coordinates: io.UnionType<[io.ArrayType<io.NumberType>, io.ArrayType<io.ArrayType<io.NumberType>>, io.ArrayType<io.ArrayType<io.ArrayType<io.NumberType>>>, io.ArrayType<io.ArrayType<io.ArrayType<io.ArrayType<io.NumberType>>>>], number[] | number[][] | number[][][] | number[][][][]>;
+        }>, io.PartialType<{
+            bbox: io.UnionType<[io.ArrayType<io.ArrayType<io.NumberType>>, io.ArrayType<io.ArrayType<io.ArrayType<io.NumberType>>>], number[][] | number[][][]>;
+        }>], io.InterfaceOf<{
+            type: io.UnionType<[io.LiteralType<"Point">, io.LiteralType<"Polygon">, io.LiteralType<"LineString">, io.LiteralType<"MultiPoint">, io.LiteralType<"MultiPolygon">, io.LiteralType<"MultiLineString">], "Point" | "Polygon" | "LineString" | "MultiPoint" | "MultiPolygon" | "MultiLineString">;
+            coordinates: io.UnionType<[io.ArrayType<io.NumberType>, io.ArrayType<io.ArrayType<io.NumberType>>, io.ArrayType<io.ArrayType<io.ArrayType<io.NumberType>>>, io.ArrayType<io.ArrayType<io.ArrayType<io.ArrayType<io.NumberType>>>>], number[] | number[][] | number[][][] | number[][][][]>;
+        }> & io.PartialOf<{
+            bbox: io.UnionType<[io.ArrayType<io.ArrayType<io.NumberType>>, io.ArrayType<io.ArrayType<io.ArrayType<io.NumberType>>>], number[][] | number[][][]>;
+        }>>>;
+    }> & io.PartialOf<{
+        bbox: io.UnionType<[io.ArrayType<io.ArrayType<io.NumberType>>, io.ArrayType<io.ArrayType<io.ArrayType<io.NumberType>>>], number[][] | number[][][]>;
+    }>)>, io.NullType], (io.InterfaceOf<{
+        type: io.UnionType<[io.LiteralType<"Point">, io.LiteralType<"Polygon">, io.LiteralType<"LineString">, io.LiteralType<"MultiPoint">, io.LiteralType<"MultiPolygon">, io.LiteralType<"MultiLineString">], "Point" | "Polygon" | "LineString" | "MultiPoint" | "MultiPolygon" | "MultiLineString">;
+        coordinates: io.UnionType<[io.ArrayType<io.NumberType>, io.ArrayType<io.ArrayType<io.NumberType>>, io.ArrayType<io.ArrayType<io.ArrayType<io.NumberType>>>, io.ArrayType<io.ArrayType<io.ArrayType<io.ArrayType<io.NumberType>>>>], number[] | number[][] | number[][][] | number[][][][]>;
+    }> & io.PartialOf<{
+        bbox: io.UnionType<[io.ArrayType<io.ArrayType<io.NumberType>>, io.ArrayType<io.ArrayType<io.ArrayType<io.NumberType>>>], number[][] | number[][][]>;
+    }>) | (io.InterfaceOf<{
+        type: io.LiteralType<"GeometryCollection">;
+        geometries: io.ArrayType<io.IntersectionType<[io.InterfaceType<{
+            type: io.UnionType<[io.LiteralType<"Point">, io.LiteralType<"Polygon">, io.LiteralType<"LineString">, io.LiteralType<"MultiPoint">, io.LiteralType<"MultiPolygon">, io.LiteralType<"MultiLineString">], "Point" | "Polygon" | "LineString" | "MultiPoint" | "MultiPolygon" | "MultiLineString">;
+            coordinates: io.UnionType<[io.ArrayType<io.NumberType>, io.ArrayType<io.ArrayType<io.NumberType>>, io.ArrayType<io.ArrayType<io.ArrayType<io.NumberType>>>, io.ArrayType<io.ArrayType<io.ArrayType<io.ArrayType<io.NumberType>>>>], number[] | number[][] | number[][][] | number[][][][]>;
+        }>, io.PartialType<{
+            bbox: io.UnionType<[io.ArrayType<io.ArrayType<io.NumberType>>, io.ArrayType<io.ArrayType<io.ArrayType<io.NumberType>>>], number[][] | number[][][]>;
+        }>], io.InterfaceOf<{
+            type: io.UnionType<[io.LiteralType<"Point">, io.LiteralType<"Polygon">, io.LiteralType<"LineString">, io.LiteralType<"MultiPoint">, io.LiteralType<"MultiPolygon">, io.LiteralType<"MultiLineString">], "Point" | "Polygon" | "LineString" | "MultiPoint" | "MultiPolygon" | "MultiLineString">;
+            coordinates: io.UnionType<[io.ArrayType<io.NumberType>, io.ArrayType<io.ArrayType<io.NumberType>>, io.ArrayType<io.ArrayType<io.ArrayType<io.NumberType>>>, io.ArrayType<io.ArrayType<io.ArrayType<io.ArrayType<io.NumberType>>>>], number[] | number[][] | number[][][] | number[][][][]>;
+        }> & io.PartialOf<{
+            bbox: io.UnionType<[io.ArrayType<io.ArrayType<io.NumberType>>, io.ArrayType<io.ArrayType<io.ArrayType<io.NumberType>>>], number[][] | number[][][]>;
+        }>>>;
+    }> & io.PartialOf<{
+        bbox: io.UnionType<[io.ArrayType<io.ArrayType<io.NumberType>>, io.ArrayType<io.ArrayType<io.ArrayType<io.NumberType>>>], number[][] | number[][][]>;
+    }>) | null>;
+    properties: io.Type<T>;
+}> & io.PartialOf<{
+    id: io.UnionType<[io.StringType, io.NumberType], string | number>;
+    bbox: io.UnionType<[io.ArrayType<io.ArrayType<io.NumberType>>, io.ArrayType<io.ArrayType<io.ArrayType<io.NumberType>>>], number[][] | number[][][]>;
+}>>;
 export declare const FeatureCollectionIO: io.IntersectionType<[io.InterfaceType<{
     type: io.LiteralType<"FeatureCollection">;
     features: io.ArrayType<io.IntersectionType<[io.InterfaceType<{

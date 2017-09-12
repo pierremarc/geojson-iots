@@ -1,6 +1,6 @@
 
 import * as io from 'io-ts';
-import { Feature, FeatureCollectionIO, FeatureIO } from '../src';
+import { Feature, FeatureCollectionIO, FeatureIO, PartialFeatureIO } from '../src';
 
 export const geojsonLine: any = {
     'type': 'FeatureCollection',
@@ -126,11 +126,40 @@ export const featureBad: any = {
 };
 
 
+export const MyPropType = io.interface({
+    a: io.string,
+    b: io.number,
+});
+
+export const MyFeatureType = PartialFeatureIO(MyPropType, 'MyFeatureType');
+export type MFT = io.TypeOf<typeof MyFeatureType>;
+
+export const myFeatureBad: any = {
+    type: 'Feature',
+    geometry: {
+        type: 'Point',
+        coordinates: [0, 0],
+    },
+    properties: {
+        a: 1,
+        b: 'a',
+    },
+};
+export const myFeatureGood: MFT = {
+    type: 'Feature',
+    geometry: {
+        type: 'Point',
+        coordinates: [0, 0],
+    },
+    properties: {
+        a: 'a',
+        b: 1,
+    },
+};
 
 
-
-const good = (msg: string) => () => console.log(msg);
-const bad = (msg: string) => () => { throw (new Error(msg)); };
+const good = (msg: string) => () => console.log(`GOOD ${msg}`);
+const bad = (msg: string) => () => { throw (new Error(`BAD ${msg}`)); };
 
 io.validate(geojsonLine, FeatureCollectionIO).fold(
     bad('Line did not validate but it should'),
@@ -150,5 +179,15 @@ io.validate(featureGood, FeatureIO).fold(
 io.validate(featureBad, FeatureIO).fold(
     good('featureBad fails to validate as it should'),
     bad('featureBad should not validate'),
+);
+
+io.validate(myFeatureGood, MyFeatureType).fold(
+    bad('myFeatureGood should validate'),
+    good('myFeatureGood validates as it should'),
+);
+
+io.validate(myFeatureBad, MyFeatureType).fold(
+    good('myFeatureBad fails to validate as it should'),
+    bad('myFeatureBad should not validate'),
 );
 

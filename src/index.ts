@@ -203,6 +203,19 @@ export const FeatureIO = io.intersection([
     }),
 ], 'FeatureIO');
 
+export const PartialFeatureIO =
+    <T>(propType: io.Type<T>, name: string) => io.intersection([
+        i({
+            type: l('Feature'),
+            geometry: u([GeometryObjectIO, io.null]),
+            properties: propType,
+        }),
+        p({
+            id: u([io.string, io.number]),
+            bbox: BoundingBoxIO,
+        }),
+    ], name);
+
 /***
 * https://tools.ietf.org/html/rfc7946#section-3.3
 */
