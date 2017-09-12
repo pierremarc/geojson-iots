@@ -60,6 +60,52 @@ const PropTypeIO = io.interface({
 const MyTypeIO = FeatureCollectionIO(PropTypeIO);
 
 io.validate({/* any */}, MyTypeIO);
+```
 
+Done with ```PartialFeatureIO```, but not used yet so I keep it here in the todo list. From the test file:
+```ts
+export const MyPropType = io.interface({
+    a: io.string,
+    b: io.number,
+});
+
+export const MyFeatureType = PartialFeatureIO(MyPropType, 'MyFeatureType');
+export type MFT = io.TypeOf<typeof MyFeatureType>;
+
+export const myFeatureBad: any = {
+    type: 'Feature',
+    geometry: {
+        type: 'Point',
+        coordinates: [0, 0],
+    },
+    properties: {
+        a: 1,
+        b: 'a',
+    },
+};
+export const myFeatureGood: MFT = {
+    type: 'Feature',
+    geometry: {
+        type: 'Point',
+        coordinates: [0, 0],
+    },
+    properties: {
+        a: 'a',
+        b: 1,
+    },
+};
+
+io.validate(myFeatureGood, MyFeatureType).fold(
+    bad('myFeatureGood should validate'),
+    good('myFeatureGood validates as it should'),
+);
+
+io.validate(myFeatureBad, MyFeatureType).fold(
+    good('myFeatureBad fails to validate as it should'),
+    bad('myFeatureBad should not validate'),
+);
+// logs
+// GOOD myFeatureGood validates as it should
+// GOOD myFeatureBad fails to validate as it should
 
 ```
