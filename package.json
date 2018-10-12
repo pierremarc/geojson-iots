@@ -29,10 +29,10 @@
   },
   "homepage": "https://github.com/pierremarc/geojson-iots#readme",
   "dependencies": {
-    "io-ts": "^0.7.0"
+    "io-ts": "^1.3.1"
   },
   "devDependencies": {
     "tslint": "^5.7.0",
-    "typescript": "^2.5.2"
+    "typescript": "^3.1.3"
   }
 }

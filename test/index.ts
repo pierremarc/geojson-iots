@@ -161,32 +161,32 @@ export const myFeatureGood: MFT = {
 const good = (msg: string) => () => console.log(`GOOD ${msg}`);
 const bad = (msg: string) => () => { throw (new Error(`BAD ${msg}`)); };
 
-io.validate(geojsonLine, FeatureCollectionIO).fold(
+FeatureCollectionIO.decode(geojsonLine).fold(
     bad('Line did not validate but it should'),
     good('geojsonLine validates as it should'),
 );
 
-io.validate(geojsonMissingProperties, FeatureCollectionIO).fold(
+FeatureCollectionIO.decode(geojsonMissingProperties).fold(
     good('geojsonMissingProperties fails to validate as it should'),
     bad('missingProperties should not validate but it did'),
 );
 
-io.validate(featureGood, FeatureIO).fold(
+FeatureIO.decode(featureGood).fold(
     bad('featureGood should validate'),
     good('featureGood validates as it should'),
 );
 
-io.validate(featureBad, FeatureIO).fold(
+FeatureIO.decode(featureBad).fold(
     good('featureBad fails to validate as it should'),
     bad('featureBad should not validate'),
 );
 
-io.validate(myFeatureGood, MyFeatureType).fold(
+MyFeatureType.decode(myFeatureGood).fold(
     bad('myFeatureGood should validate'),
     good('myFeatureGood validates as it should'),
 );
 
-io.validate(myFeatureBad, MyFeatureType).fold(
+MyFeatureType.decode(myFeatureBad).fold(
     good('myFeatureBad fails to validate as it should'),
     bad('myFeatureBad should not validate'),
 );
