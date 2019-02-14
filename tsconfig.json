@@ -3,7 +3,7 @@
         "outDir": "out",
         "declaration": true,
         "moduleResolution": "node",
-        "module": "commonjs",
+        "module": "UMD",
         "target": "ES6",
         "alwaysStrict": true,
         "noImplicitAny": true,
