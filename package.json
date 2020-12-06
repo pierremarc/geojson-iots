@@ -1,6 +1,6 @@
 {
   "name": "geojson-iots",
-  "version": "1.0.6",
+  "version": "1.0.7",
   "description": "Runtime types for GeoJSON",
   "main": "out/src/index.js",
   "typings": "out/src/index.d.ts",
